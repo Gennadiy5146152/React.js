@@ -37,7 +37,7 @@ const myArray: MyArray<number> = [1,2,3];
 
 interface MyArray<T> {
     [N: number]: T;
-    reduce(callbackfn: (previousValue: T, currentValue: T, currentIndex: number, array: T[]) => T, initialValue: T): T;
+    reduce<K>(callbackfn: (previousValue: K, currentValue: T, currentIndex: number, array: T[]) => K, initialValue: K): K;
 }
 
 const initialValue = 0;
@@ -54,12 +54,13 @@ interface IHomeTask {
         value: string;
     }
 }
-const homeTask:  MyPartial<IHomeTask> = {
-    externalData: {
-        value: 'win'
-    }
-}
 type MyPartial<T> = {
-    [N in keyof Partial<T>]: T[N] extends object ? MyPartial<T[N]> : T[N];
+    [N in keyof T]?: T[N] extends object ? MyPartial<T[N]> : T[N];
+}
+
+const homeTask:  MyPartial<IHomeTask> = {
+  externalData: {
+      value: 'win'
+  }
 }
 console.log(homeTask)
