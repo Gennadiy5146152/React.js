@@ -3,6 +3,8 @@
     top: 17px;
     right: 15px;
     padding: 0;
+    display: flex;
+    justify-content: center;
   }
   
   .menuButton {
@@ -56,4 +58,8 @@
     .menuButton:hover {
       background-color: rgba(51, 51, 51, 0.1);
     }
+  }
+
+  .positionDropdownPost {
+    position: relative;
   }
