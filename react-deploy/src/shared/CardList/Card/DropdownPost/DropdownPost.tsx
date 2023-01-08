@@ -6,7 +6,11 @@ import { DropdownComponentSave } from './DropdownComponents/DropdownComponentSav
 import { DropdownComponentShare } from './DropdownComponents/DropdownComponentShare';
 import styles from './dropdownpost.css';
 
-export function DropdownPost() {
+interface IMenuItemsListProps {
+  postId: string;
+}
+
+export function DropdownPost({postId}: IMenuItemsListProps) {
   return (
     <div className={ styles.dropdown }>
       <ul className={styles.ulDropdown}>
@@ -16,7 +20,7 @@ export function DropdownPost() {
         <DropdownComponentSave />
         <DropdownComponentComplain />
       </ul>
-      <div className={styles.closeLiDropdownPost}><span className={styles.textcloseLiDropdownPost}>Закрыть</span></div>
+      <div className={styles.closeLiDropdownPost} onClick={() => console.log(postId)}><span className={styles.textcloseLiDropdownPost}>Закрыть</span></div>
     </div>
   );
 }
