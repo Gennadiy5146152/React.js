@@ -1,9 +1,10 @@
 import React from 'react';
-import { ProgressPlugin } from 'webpack';
 import { MenuIcon } from '../../../icons/MenuIcon';
 import { Dropdown } from '../Dropdown';
 import { DropdownPost } from '../DropdownPost';
+import { DropdownPostM } from '../DropdownPostM';
 import styles from './menubutton.css';
+
 
 export function MenuButton() {
   let [isOpen, setIsOpen] = React.useState(false);
@@ -14,6 +15,7 @@ export function MenuButton() {
      <MenuIcon />
       </button>}>
         <DropdownPost postId={'1'}></DropdownPost>
+        <DropdownPostM postId={'1'}></DropdownPostM>
       </Dropdown>
   </div>
   );

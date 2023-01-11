@@ -4,8 +4,8 @@ import styles from './dropdowncomponentcoments.css';
 
 export function DropdownComponentComents() {
   return (
-    <li className={styles.liDropdownPost }>
-        <IconComents />
-        <span className={styles.textDp}>Коментарии</span></li>
+    <div>
+        <IconComents width={16} height={16}/>
+        <span className={styles.textDp}>Коментарии</span></div>
   );
 }

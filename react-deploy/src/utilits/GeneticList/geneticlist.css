@@ -1,0 +1,27 @@
+.dropdown {
+    position: absolute;
+    right: 0;
+    top: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    border-radius: 3px;
+    background-color: var(--white);
+  }
+
+  .liDropdownPost {
+    position: relative;
+    width: 120px;
+    height: 16px;
+    padding-bottom: 21px;
+    margin-bottom: 9px;
+    border-bottom: 1px solid  #999999;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.liDropdownPost:first-child {
+    margin-top: 20px;
+}
+
+.liDropdownPost:last-child {
+    border-bottom: 0;
+}

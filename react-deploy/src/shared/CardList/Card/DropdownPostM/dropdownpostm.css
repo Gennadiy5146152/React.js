@@ -57,22 +57,17 @@
     color: #666666;
 }
 
-@media all and (max-width: 1024px) {
+
+
+@media all and (min-width: 1024px) {
     .dropdown {
       display: none;
     }
 }
 
-@media all and (min-width: 1024px) {
-    .dropdown {
-      display: block;
-    }
-}
-
 @media all and (min-width: 1540px) {
     .dropdown {
-      display: block;
+      display: none;
     }
 }
-
 

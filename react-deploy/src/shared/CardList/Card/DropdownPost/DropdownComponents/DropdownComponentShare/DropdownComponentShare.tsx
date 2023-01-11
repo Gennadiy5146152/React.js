@@ -1,11 +1,12 @@
 import React from 'react';
-import { IconShare } from '../../../../../icons/IconShare';
 import styles from './dropdowncomponentshare.css';
+import { Esvg, Icons } from '../../../../../icons/Icons';
 
 export function DropdownComponentShare() {
   return (
-<li className={styles.liDropdownPost }>
-       <IconShare />
-        <span className={styles.textDp}>Поделиться</span></li>
+    <div>
+        <Icons name={Esvg.iconShare} width={16} height={16}></Icons>
+        <span className={styles.textDp}>Поделиться</span>
+    </div>
   );
 }
