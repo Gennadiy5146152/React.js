@@ -5,7 +5,7 @@ import { DropdownComponentHide } from './DropdownComponents/DropdownComponentHid
 import { DropdownComponentSave } from './DropdownComponents/DropdownComponentSave';
 import { DropdownComponentShare } from './DropdownComponents/DropdownComponentShare';
 import styles from './dropdownpost.css';
-import { GeneticList, IItem } from '../../../../utilits/GeneticList';
+import { GeneticList, IItem } from '../../../../utilits/GenericList';
 
 
 interface IMenuItemsListProps {
@@ -14,10 +14,10 @@ interface IMenuItemsListProps {
 
 export function DropdownPost({postId}: IMenuItemsListProps) {
   const LIST: Array<IItem> = [
-    {As: 'li', text: <DropdownComponentShare />,  id: '2', className: styles.liDropdownPost},
-    {As: 'li', text: <DropdownComponentHide />,  id: '3', className: styles.liDropdownPost},
-    {As: 'li', text: <DropdownComponentComents />, id: '1', className: styles.liDropdownPost},
-    {As: 'li', text: <DropdownComponentSave />,   id: '4', className: styles.liDropdownPost},
+    {As: 'li', text: <DropdownComponentShare />,  id: '2', className: `${styles.liDropdownPost} ${styles.liDropdownPostM}`},
+    {As: 'li', text: <DropdownComponentHide />,  id: '3', className: `${styles.liDropdownPost} ${styles.liMargin}`},
+    {As: 'li', text: <DropdownComponentComents />, id: '1', className: `${styles.liDropdownPost} ${styles.liDropdownPostM}`},
+    {As: 'li', text: <DropdownComponentSave />,   id: '4', className: `${styles.liDropdownPost} ${styles.liDropdownPostM}`},
     {As: 'li', text: <DropdownComponentComplain />, id: '5', className: styles.liDropdownPost},
   ];
   return (

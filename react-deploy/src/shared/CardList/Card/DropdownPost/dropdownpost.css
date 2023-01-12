@@ -9,6 +9,7 @@
     margin-right: 20px;
 }
 
+
 .liDropdownPost:first-child {
     margin-top: 20px;
 }
@@ -58,21 +59,23 @@
 }
 
 @media all and (max-width: 1024px) {
-    .dropdown {
+    .liDropdownPostM{
       display: none;
+    }
+    .liMargin {
+        margin-top: 20px;
     }
 }
 
 @media all and (min-width: 1024px) {
-    .dropdown {
+    .liDropdownPostM {
       display: block;
     }
 }
 
 @media all and (min-width: 1540px) {
-    .dropdown {
+    .liDropdownPostM {
       display: block;
     }
 }
-
 

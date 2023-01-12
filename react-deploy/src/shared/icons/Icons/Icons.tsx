@@ -20,35 +20,21 @@ interface IiconsProps extends Iiconprops {
 
 export function Icons(props: IiconsProps) {
   const {
-    name,
+    name = Esvg.iconComents,
     width,
     height,
   } = props;
 
-    switch(name) {
-      case Esvg.iconComents:
-        return (
-          <IconComents width={width} height={height}/>
-        );
-      case Esvg.iconComplain:
-        return (
-          <IconComplain width={width} height={height}/>
-        );
-      case Esvg.iconHide:
-        return (
-          <IconHide width={width} height={height}/>
-        );
-      case Esvg.iconSave:
-        return (
-          <IconSave width={width} height={height}/>
-        );
-      case Esvg.iconShare:
-        return (
-          <IconShare width={width} height={height}/>
-        );
-        default:
-          return (
-            <></>
-          )
-    }
+  const icons = {
+    [Esvg.iconComents]: <IconComents width={width} height={height}/>,
+    [Esvg.iconComplain]: <IconComplain width={width} height={height}/>,
+    [Esvg.iconHide]: <IconHide width={width} height={height}/>,
+    [Esvg.iconSave]: <IconSave width={width} height={height}/>,
+    [Esvg.iconShare]: <IconShare width={width} height={height}/>,
+  }
+    return (
+      <>
+        {icons[name]}
+      </>
+    )
 }

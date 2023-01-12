@@ -4,3 +4,4 @@ export  * from './IconComplain';
 export * from './IconHide';
 export * from './IconSave';
 export * from './IconShare';
+export * from './IconAnon';

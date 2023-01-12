@@ -9,7 +9,7 @@
     "deploy": "gh-pages -d build:dev",
     "build:dev": "cross-env NODE_ENV=development webpack --config webpack.config.js",
     "build:prod": "cross-env NODE_ENV=production webpack --config webpack.config.js",
-    "dev": "cross-env NODE_ENV=development node ./bin/dev.js",
+    "dev": "cross-env NODE_ENV=development CLIENT_ID=9fS4Dt6juujVLyBbhhldy node ./bin/dev.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
@@ -28,7 +28,7 @@
     "@types/classnames": "^2.3.1",
     "@types/enzyme": "^3.10.12",
     "@types/jest": "^28.1.6",
-    "@types/react": "^18.0.26",
+    "@types/react": "^17.0.52",
     "@types/react-dom": "^18.0.10",
     "@wojtekmaj/enzyme-adapter-react-17": "^0.8.0",
     "clean-webpack-plugin": "^4.0.0",
