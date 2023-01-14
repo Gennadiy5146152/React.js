@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './geneticlist.css';
+import styles from './genericlist.css';
 
 export interface IItem {
   id: string;
@@ -16,7 +16,7 @@ interface IGenericListProps {
 
 const noop = () => {};
 
-export function GeneticList( {list}: IGenericListProps) {
+export function GenericList( {list}: IGenericListProps) {
   return (
     <>
   {list.map(({ As = 'div', text, className, id, onClick = noop, href}) => {

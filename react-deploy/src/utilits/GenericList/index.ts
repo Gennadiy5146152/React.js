@@ -1,1 +1,1 @@
-export * from './GeneticList';
+export * from './GenericList';

@@ -5,6 +5,7 @@ import {Iiconprops} from './types';
 import { IconHide } from '../IconHide';
 import { IconSave } from '../IconSave';
 import { IconShare } from '../IconShare';
+import styles from './icons.css'
 
 export enum Esvg {
  iconComents = 'IconComents',
@@ -14,27 +15,24 @@ export enum Esvg {
  iconShare = 'IconShare',
 }
 
-interface IiconsProps extends Iiconprops {
+const icons = {
+  [Esvg.iconComents]: <IconComents />,
+  [Esvg.iconComplain]: <IconComplain />,
+  [Esvg.iconHide]: <IconHide />,
+  [Esvg.iconSave]: <IconSave />,
+  [Esvg.iconShare]: <IconShare />,
+}
+//type Tsizes = styles.s28 | 20 | 16 | 14 | 12 | 10;
+interface IiconsProps {
   name?: Esvg;
+  style: any;
 }
 
-export function Icons(props: IiconsProps) {
-  const {
-    name = Esvg.iconComents,
-    width,
-    height,
-  } = props;
+export function Icons({ name = Esvg.iconComents, style }: IiconsProps) {
 
-  const icons = {
-    [Esvg.iconComents]: <IconComents width={width} height={height}/>,
-    [Esvg.iconComplain]: <IconComplain width={width} height={height}/>,
-    [Esvg.iconHide]: <IconHide width={width} height={height}/>,
-    [Esvg.iconSave]: <IconSave width={width} height={height}/>,
-    [Esvg.iconShare]: <IconShare width={width} height={height}/>,
-  }
     return (
-      <>
+      <div className={`${style}`}>
         {icons[name]}
-      </>
+      </div>
     )
 }

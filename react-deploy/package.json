@@ -9,12 +9,13 @@
     "deploy": "gh-pages -d build:dev",
     "build:dev": "cross-env NODE_ENV=development webpack --config webpack.config.js",
     "build:prod": "cross-env NODE_ENV=production webpack --config webpack.config.js",
-    "dev": "cross-env NODE_ENV=development CLIENT_ID=9fS4Dt6juujVLyBbhhldy node ./bin/dev.js",
+    "dev": "cross-env NODE_ENV=development CLIENT_ID=9fS4Dt6juujVLyBbhhldyA node ./bin/dev.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "axios": "^1.2.2",
     "classnames": "^2.3.2",
     "cors": "^2.8.5",
     "express": "^4.17.1",

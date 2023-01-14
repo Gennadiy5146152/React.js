@@ -64,3 +64,84 @@
   .positionDropdownPost {
     position: relative;
   }
+
+  .liDropdownPost {
+    position: relative;
+    width: 120px;
+    height: 16px;
+    padding-bottom: 21px;
+    margin-bottom: 9px;
+    border-bottom: 1px solid  #999999;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+
+.liDropdownPost:first-child {
+    margin-top: 20px;
+}
+
+.liDropdownPost:last-child {
+    border-bottom: 0;
+}
+
+.dropdown {
+    position: absolute;
+    right: -100%;
+    top: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    border-radius: 3px;
+    background-color: var(--white);
+}
+
+.ulDropdown {
+    display: flex;
+    flex-direction: column;
+}
+
+.textDp {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    padding: 2px;
+    padding-left: 3px;
+    vertical-align: top;
+    color: #999999;
+}
+
+.closeLiDropdownPost {
+    background: #D9D9D9;
+    text-align: center;
+    display: block;
+    padding: 10px 14px 15px 13px ;
+}
+
+.textcloseLiDropdownPost {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    color: #666666;
+}
+
+@media all and (max-width: 1024px) {
+    .liDropdownPostM{
+      display: none;
+    }
+    .liMargin {
+        margin-top: 20px;
+    }
+}
+
+@media all and (min-width: 1024px) {
+    .liDropdownPostM {
+      display: block;
+    }
+}
+
+@media all and (min-width: 1540px) {
+    .liDropdownPostM {
+      display: block;
+    }
+}

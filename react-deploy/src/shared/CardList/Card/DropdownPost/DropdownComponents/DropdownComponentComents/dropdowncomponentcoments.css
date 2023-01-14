@@ -57,4 +57,34 @@
     color: #666666;
 }
 
+.s16 {
+    display: flex;
+    width: 16px;
+    height: 16px;
+}
+
+.s18 {
+    display: flex;
+    width: 18px;
+    height: 18px;
+}
+
+.s20 {
+    display: flex;
+    width: 20px;
+    height: 20px;
+}
+
+.s22 {
+    display: flex;
+    width: 22px;
+    height: 22px;
+}
+
+.s24 {
+    display: flex;
+    width: 24px;
+    height: 24px;
+}
+
 
