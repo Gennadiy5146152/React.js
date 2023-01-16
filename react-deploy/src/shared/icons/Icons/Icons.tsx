@@ -26,13 +26,15 @@ const icons = {
 interface IiconsProps {
   name?: Esvg;
   style: any;
+  text?: string;
 }
 
-export function Icons({ name = Esvg.iconComents, style }: IiconsProps) {
+export function Icons({ name = Esvg.iconComents, style, text }: IiconsProps) {
 
     return (
       <div className={`${style}`}>
         {icons[name]}
+        <span className={styles.textDp}>{text}</span>
       </div>
     )
 }

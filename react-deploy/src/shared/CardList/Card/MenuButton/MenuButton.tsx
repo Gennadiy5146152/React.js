@@ -1,5 +1,6 @@
 import React from 'react';
 import { IItem, GenericList } from '../../../../utilits/GenericList';
+import { Esvg, Icons } from '../../../icons/Icons';
 import { MenuIcon } from '../../../icons/MenuIcon';
 import { Dropdown } from '../Dropdown';
 import { DropdownComponentComents } from '../DropdownPost/DropdownComponents/DropdownComponentComents';
@@ -13,11 +14,11 @@ import styles from './menubutton.css';
 export function MenuButton() {
   let [isOpen, setIsOpen] = React.useState(false);
   const LIST: Array<IItem> = [
-    {As: 'li', text: <DropdownComponentShare />,  id: '2', className: `${styles.liDropdownPost} ${styles.liDropdownPostM}`},
-    {As: 'li', text: <DropdownComponentHide />,  id: '3', className: `${styles.liDropdownPost} ${styles.liMargin}`},
-    {As: 'li', text: <DropdownComponentComents />, id: '1', className: `${styles.liDropdownPost} ${styles.liDropdownPostM}`},
-    {As: 'li', text: <DropdownComponentSave />,   id: '4', className: `${styles.liDropdownPost} ${styles.liDropdownPostM}`},
-    {As: 'li', text: <DropdownComponentComplain />, id: '5', className: styles.liDropdownPost},
+    {As: 'li', text:  <Icons name={Esvg.iconComents} style={styles.s16} text={'Комментарии'}/>,  id: '2', className: `${styles.liDropdownPost} ${styles.liDropdownPostM}`},
+    {As: 'li', text:  <Icons name={Esvg.iconShare} style={styles.s16} text={'Поделиться'}/>,  id: '3', className: `${styles.liDropdownPost} ${styles.liMargin}`},
+    {As: 'li', text:  <Icons name={Esvg.iconHide} style={styles.s16} text={'Скрыть'}/>, id: '1', className: `${styles.liDropdownPost} ${styles.liDropdownPostM}`},
+    {As: 'li', text:  <Icons name={Esvg.iconSave} style={styles.s16} text={'Сохранить'}/>,   id: '4', className: `${styles.liDropdownPost} ${styles.liDropdownPostM}`},
+    {As: 'li', text:  <Icons name={Esvg.iconComplain} style={styles.s16} text={'Пожаловаться'}/>, id: '5', className: styles.liDropdownPost},
   ];
   return (
     <div className={styles.menu}>

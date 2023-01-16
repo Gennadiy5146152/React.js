@@ -1,24 +1,10 @@
-.s16 {
-    width: 16px;
-    height: 16px;
-}
-
-.s18 {
-    width: 18px;
-    height: 18px;
-}
-
-.s20 {
-    width: 20px;
-    height: 20px;
-}
-
-.s22 {
-    width: 22px;
-    height: 22px;
-}
-
-.s24 {
-    width: 24px;
-    height: 24px;
+.textDp {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    padding: 2px;
+    padding-left: 3px;
+    vertical-align: top;
+    color: #999999;
 }
