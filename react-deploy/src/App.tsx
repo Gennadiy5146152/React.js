@@ -5,21 +5,25 @@ import { Layout } from "./shared/Layout";
 import { Header } from "./shared/Header";
 import { Content } from "./shared/Content";
 import { CardList } from "./shared/CardList";
-import { Ecolor, Text } from './shared/Text';
+import {useToken} from './hooks/useToken';
+import { tokenContext } from './shared/context/tokenContext'
 
 function AppComponent() {
+    const [token] = useToken();
+    const { Provider } = tokenContext;
+    console.log(tokenContext)
+
     return (
-        <Layout>
-            <Header />
-            <Content>
-                <CardList />
-                <br/>
-                <Text size={20} mobileSize={28} color={Ecolor.green} bold>Label1</Text>
-                <Text size={20}>Label2</Text>
-                <Text size={20} mobileSize={16}>Label3</Text>
-            </Content>
-        </Layout>
+        <Provider value={token}>
+            <Layout>
+                <Header/>
+                <Content>
+                    <CardList />
+                    <br/>
+                </Content>
+            </Layout>
+        </Provider>
     )
 }
 
-export const App = hot(AppComponent)
+export const App = hot(() => <AppComponent/>)
