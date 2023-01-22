@@ -1,9 +1,5 @@
 import { useEffect, useState } from "react";
 
-declare const window: any;
-// interface window {
-//     __token__: string;
-//   }
 export function useToken(): string[] {
     
     

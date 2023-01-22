@@ -5,11 +5,16 @@ import { SaveButton } from '../SaveButton';
 import { ShareButton } from '../ShareButton';
 import styles from './buttoncontrolsactions.css';
 
-export function ButtonControlsActions() {
+interface IButtonControlsActions {
+  score: string;
+  num_comments: number;
+}
+
+export function ButtonControlsActions({score, num_comments}: IButtonControlsActions) {
   return (
     <div className={styles.controls}>
-    <CarmaCounter></CarmaCounter>
-    <ComentsButton></ComentsButton>
+    <CarmaCounter score={score}></CarmaCounter>
+    <ComentsButton num_comments={num_comments}></ComentsButton>
 
     <div className={styles.actions}>
      <ShareButton></ShareButton>

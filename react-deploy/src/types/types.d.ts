@@ -4,7 +4,7 @@ declare module "*.css" {
 }
 declare const window: any;
 
-interface window {
+interface Window {
   __token__: string;
 }
 

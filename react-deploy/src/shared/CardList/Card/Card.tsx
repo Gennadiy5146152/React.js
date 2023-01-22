@@ -5,15 +5,26 @@ import styles from './card.css';
 import { MenuButton } from './MenuButton';
 import { Preview } from './Preview';
 
-export function Card() {
+interface ICard {
+    data?: any,
+    author?: any,
+    image?: any,
+    url?: any,
+    title?: any,
+    date?: any,
+    score?: any,
+    comments?: any,
+}
+
+export function Card({author, image, url, title, date, score, comments}: ICard) {
   return (
     <li className={styles.card}>
     <div className={styles.textContent}>
-    <Avatar></Avatar>
+    <Avatar url={url} author={author} date={date} title={title}></Avatar>
     </div>
-      <Preview></Preview>
+      <Preview image={image}></Preview>
      <MenuButton></MenuButton>
-     <ButtonControlsActions></ButtonControlsActions>
+     <ButtonControlsActions score={score} num_comments={comments}></ButtonControlsActions>
     </li>
   );
 }

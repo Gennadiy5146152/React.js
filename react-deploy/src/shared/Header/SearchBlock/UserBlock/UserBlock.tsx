@@ -10,8 +10,6 @@ interface IUserBlockProps {
 }
 
 export function UserBlock({avatarSrc, username}: IUserBlockProps) {
-  console.log(avatarSrc);
-  console.log(username);
   return (
     <a 
     href='https://www.reddit.com/api/v1/authorize?client_id=9fS4Dt6juujVLyBbhhldyA&response_type=code&state=random&redirect_uri=http://localhost:3000/auth&duration=permanent&scope=read submit identity'
