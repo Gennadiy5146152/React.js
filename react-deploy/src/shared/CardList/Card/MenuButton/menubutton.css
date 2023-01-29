@@ -175,3 +175,10 @@
   width: 24px;
   height: 24px;
 }
+
+.modal_root {
+  position: absolute;
+  left: 941px;
+  top: 200px;
+  
+}

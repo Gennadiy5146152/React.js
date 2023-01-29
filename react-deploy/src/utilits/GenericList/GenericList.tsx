@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import styles from './genericlist.css';
 
 export interface IItem {
@@ -17,6 +18,7 @@ interface IGenericListProps {
 const noop = () => {};
 
 export function GenericList( {list}: IGenericListProps) {
+
   return (
     <>
   {list.map(({ As = 'div', text, className, id, onClick = noop, href}) => {

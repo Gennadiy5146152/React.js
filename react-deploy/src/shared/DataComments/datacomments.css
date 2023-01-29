@@ -1,0 +1,82 @@
+.createdAt {
+    color: #999999;
+    font-size: 14px;
+    padding-right: 15px;
+}
+
+.division {
+    background-color: #D9D9D9;
+    font-size: 16px;
+    padding: 2px 7px 4px 7px;
+}
+
+.headerPost {
+    display: flex;
+    align-items: center;
+}
+
+.author{
+    font-size: 16px;
+    padding: 0!;
+}
+
+.iconComments {
+    padding-right: 22px;
+}
+
+.textComment {
+  margin: 0;
+    font-size: 14px;
+    padding-left: 42px;
+}
+
+.s16 {
+    display: flex;
+    width: 16px!;
+    height: 16px;
+  }
+  
+  .s18 {
+    display: flex;
+    width: 18px;
+    height: 18px;
+  }
+  
+  .s20 {
+    display: flex;
+    width: 20px;
+    height: 20px;
+  }
+  
+  .s22 {
+    display: flex;
+    width: 22px;
+    height: 22px;
+  }
+  
+  .s24 {
+    display: flex;
+    width: 24px;
+    height: 24px;
+  }
+  
+  .modal_root {
+    position: absolute;
+    left: 941px;
+    top: 200px;
+    
+  }
+
+  .menuButton {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .liMenuButton {
+    padding-right: 27px;
+  }
+
+  .liMenuButton:first-child {
+    padding-left: 42px;
+  }
+  

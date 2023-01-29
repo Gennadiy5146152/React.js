@@ -1,5 +1,4 @@
 import React, { useContext } from 'react';
-import { postContext } from '../../../context/postContext';
 import styles from './user.css';
 
 interface IUser {
@@ -8,7 +7,6 @@ interface IUser {
 }
 
 export function User({url, author}: IUser) {
-  const data = useContext(postContext);
   return (
   <div className={styles.userLink}>
     <img className={styles.avatar} src={url} alt="avatar"/>

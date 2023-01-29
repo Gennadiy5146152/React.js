@@ -25,7 +25,7 @@ const icons = {
 //type Tsizes = styles.s28 | 20 | 16 | 14 | 12 | 10;
 interface IiconsProps {
   name?: Esvg;
-  style: any;
+  style?: any;
   text?: string;
 }
 

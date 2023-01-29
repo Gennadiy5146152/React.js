@@ -1,18 +1,28 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { User } from '../User';
 import styles from './avatar.css';
+import {Post} from '../../../Post'
+import { useCommentsData } from '../../../../hooks/useCommentsData';
 
 interface IAvatar {
   url: string;
   author: string;
-  date:string;
+  date:number;
   title: string;
+  direction?: string;
+  id?: any;
+  subreddit?: any;
 }
 
-export function Avatar({url, author, date, title}: IAvatar) {
+export function Avatar({url, author, date, title, direction, id, subreddit}: IAvatar) {
+  const [isModalOpened, setIsModalOpened ] = useState(false);
+  const [data] = useCommentsData({id, subreddit});
   return (
 <div className={styles.textContent}>
   <div className={styles.metaData}>
+  {direction && (
+      <span className={styles.direction}>{direction}</span>
+    )}
       <div className={styles.userLink}>
         <User url={url} author={author}></User>
       </div>
@@ -22,9 +32,13 @@ export function Avatar({url, author, date, title}: IAvatar) {
       </span>
   </div>
   <h2 className={styles.title}>
-    <a href='#post-url' className={styles.postLink}>
+    <a href='#' className={styles.postLink} onClick={(event) => {
+      setIsModalOpened(true)}}>
       {title}
     </a>
+    {isModalOpened && (
+      <Post data={data} onClose={() => {setIsModalOpened(false)}}></Post>
+    )}
   </h2>
 </div>
   );

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import './main.global.css'
 import { hot } from "react-hot-loader/root";
 import { Layout } from "./shared/Layout";
@@ -10,25 +10,36 @@ import { tokenContext } from './shared/context/tokenContext'
 import { usePostData } from "./hooks/usePostsData";
 import { userContext, UserContextProvider } from './shared/context/userContext';
 import { PostContextProvider } from "./shared/context/postContext";
+import { commentContext } from "./shared/context/commentContext";
+import { useCommentsData } from "./hooks/useCommentsData";
 
 function AppComponent() {
     const [token] = useToken();
-    const [post] = usePostData();
+    const [commentValue, setCommentValue] = useState('');
+
+    const CommentProvider = commentContext.Provider
+    //const [comments] = useCommentsData();
+   
 
     return (
-        <tokenContext.Provider value={token}>
-            <UserContextProvider>
-                <PostContextProvider>
-                <Layout>
-                    <Header/>
-                        <Content>
-                            <CardList />
-                        <   br/>
-                        </Content>
-                </Layout>
-                </PostContextProvider>
-            </UserContextProvider>
-        </tokenContext.Provider>
+        <CommentProvider value={{
+            value: commentValue,
+            onChange: setCommentValue,
+        }}>
+            <tokenContext.Provider value={token}>
+                <UserContextProvider>
+                    <PostContextProvider>
+                        <Layout>
+                            <Header/>
+                                <Content>
+                                    <CardList />
+                                    <   br/>
+                                </Content>
+                        </Layout>
+                    </PostContextProvider>
+                </UserContextProvider>
+            </tokenContext.Provider>
+        </CommentProvider>
     )
 }
 

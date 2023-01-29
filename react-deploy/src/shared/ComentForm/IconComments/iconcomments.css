@@ -1,0 +1,11 @@
+.ulModalComments {
+    display: flex;
+}
+
+.liModalComments {
+    padding-right: 26px;
+}
+
+.liModalComments:first-child {
+    padding-left: 13px;
+}

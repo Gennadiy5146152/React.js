@@ -1,0 +1,29 @@
+.input {
+    margin: 0;
+    padding: auto;
+    min-width: 100%;
+    min-height: 50px;
+    border: 1px solid black;
+}
+
+.button {
+    width: 45%;
+    height: 50px;
+    background-color: #CC6633;
+}
+
+.blockIconsButton {
+    display: flex;
+    align-items: center;
+}
+
+.componentIconComments {
+    display: flex;
+    align-items: center;
+    height: 50px;
+    background-color: #E5E5E5;
+}
+
+.comentForm {
+    margin-bottom: 53px;
+}

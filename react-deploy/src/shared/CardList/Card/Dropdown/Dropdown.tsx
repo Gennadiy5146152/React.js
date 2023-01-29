@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import ReactDOM from 'react-dom';
 import styles from './dropdown.css';
 
 interface IDropdownOpen {
@@ -7,6 +8,7 @@ interface IDropdownOpen {
   isOpen?: any;
   onOpen?: () => void;
   onClose?: () => void;
+  id?: any;
 }
 
 const NOOP = () => {};
@@ -22,6 +24,8 @@ export function Dropdown({button, children, isOpen, onOpen = NOOP, onClose = NOO
     }
   }
 
+
+
   return (
     <div className={styles.container}>
       <div onClick={handleOpen}>
@@ -34,6 +38,5 @@ export function Dropdown({button, children, isOpen, onOpen = NOOP, onClose = NOO
           </div>
         </div>
       )}
-    </div>
-  );
+    </div>);
 }

@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './carmacounter.css';
 
 interface ICarmaCounter {
-  score: string
+  score?: string
 }
 
 export function CarmaCounter({score}: ICarmaCounter) {

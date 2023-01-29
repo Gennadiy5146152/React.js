@@ -25,7 +25,6 @@ body {
 }
 
 * {
-  color: var(--black);
   box-sizing: border-box;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -47,3 +46,59 @@ button {
   background: transparent;
   cursor: pointer;
 }
+
+
+
+
+.liDropdownPost:first-child {
+  margin-top: 20px;
+}
+
+.liDropdownPost:last-child {
+  border-bottom: 0;
+}
+
+@media all and (max-width: 1024px) {
+  .liDropdownPostM{
+    display: none;
+  }
+  .liMargin {
+      margin-top: 20px;
+  }
+}
+
+@media all and (min-width: 1024px) {
+  .liDropdownPostM {
+    display: block;
+  }
+}
+
+@media all and (min-width: 1540px) {
+  .liDropdownPostM {
+    display: block;
+  }
+}
+
+.dropdown {
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+  border-radius: 3px;
+  background-color: var(--white);
+}
+
+.closeLiDropdownPost {
+  text-align: center;
+  display: block;
+}
+
+.textcloseLiDropdownPost {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  color: #666666;
+}
+
+
+
+
+

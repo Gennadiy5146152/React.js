@@ -1,0 +1,43 @@
+.modal {
+        background-color: #fff;
+        
+        border: 1px solid rgba(0,0,0,.2);
+        border-radius: .3rem;
+        position: absolute;
+        width: auto;
+        margin: 10px;
+        padding: 30px 60px;
+        border-bottom: 1px solid #eceeef;
+        z-index: 100;
+        left: 25%;
+        top: 50%;
+        max-width: 960px;
+}
+
+.headerModal {
+        display: flex;
+        align-items: center;
+}
+
+.iconClose {
+        display: flex;
+        position: relative;
+        justify-content: flex-end;
+}
+
+.img {
+        width: 100%;  
+}
+
+.content {
+        margin-bottom: 28px;
+}
+
+.textFigcapture {
+        font-size: 12px;
+        color: #999999;
+}
+
+.liDataComments {
+        margin-bottom: 41px;
+}

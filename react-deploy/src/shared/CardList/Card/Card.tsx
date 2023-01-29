@@ -14,13 +14,16 @@ interface ICard {
     date?: any,
     score?: any,
     comments?: any,
+    id?: any,
+    subreddit?: any,
 }
 
-export function Card({author, image, url, title, date, score, comments}: ICard) {
+export function Card({author, image, url, title, date, score, comments, id, subreddit}: ICard) {
+  console.log(subreddit)
   return (
     <li className={styles.card}>
     <div className={styles.textContent}>
-    <Avatar url={url} author={author} date={date} title={title}></Avatar>
+    <Avatar url={url} author={author} date={date} title={title} id={id} subreddit={subreddit}></Avatar>
     </div>
       <Preview image={image}></Preview>
      <MenuButton></MenuButton>

@@ -15,6 +15,7 @@ export const indexTemplate = (content, token) => `
 
 <body>
   <div id="react_root">${content}</div>
+  <div class="modal_root ulDropdown liDropdownPost liDropdownPostM dropdown closeLiDropdownPost textcloseLiDropdownPost" id="modal_root"></div>
 </body>
 
 </html>
