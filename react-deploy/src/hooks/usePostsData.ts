@@ -1,6 +1,7 @@
 import axios from "axios";
-import { useContext, useEffect, useState } from "react";
-import { tokenContext } from "../shared/context/tokenContext";
+import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
+import { RootState } from "../store";
 
 interface IPostData {
     data?: any,
@@ -15,11 +16,11 @@ interface IPostData {
 
 export function usePostData() {
     const [data, setData] = useState<Array<IPostData>>([])
-    const token = useContext(tokenContext)
+    const stateToken = useSelector<RootState, string>(state => state.token)
     useEffect(() => {
-        if (token.length>0) {
+        if (stateToken.length>0) {
             axios.get('https://oauth.reddit.com/best.json?sr_detail=true&limit=3', {
-                headers: {Authorization: `bearer ${token}`}
+                headers: {Authorization: `bearer ${stateToken}`}
                 })
                 .then((resp) => {
                     const postData = resp.data.data.children;
@@ -27,6 +28,6 @@ export function usePostData() {
                 })
                 .catch(console.log);
         }
-            }, [token]);
+            }, [stateToken]);
     return [data];
 }

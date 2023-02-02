@@ -1,6 +1,7 @@
 import axios from "axios";
-import { useContext, useEffect, useState } from "react";
-import { tokenContext } from "../shared/context/tokenContext";
+import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
+import { RootState } from "../store";
 
 interface IUserData {
     name?: string;
@@ -9,20 +10,19 @@ interface IUserData {
 
 export function useUserData() {
     const [data, setData] = useState<IUserData>({})
-    const token = useContext(tokenContext)
+    const stateToken = useSelector<RootState, string>(state => state.token)
     useEffect(() => {
-        if (token) {
+        if (stateToken) {
             axios.get('https://oauth.reddit.com/api/v1/me', {
-                headers: {Authorization: `bearer ${token}`}
+                headers: {Authorization: `bearer ${stateToken}`}
                 })
                 .then((resp) => {
                     const userData = resp.data;
                     setData({name: userData.name, iconImg: userData.icon_img.split('?')[0]});
-                    //console.log(resp.data)
                 })
                 .catch(console.log);
             }
         },
-         [token]);
+         [stateToken]);
     return [data];
 }

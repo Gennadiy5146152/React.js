@@ -1,5 +1,6 @@
 import React, { ChangeEvent, FormEvent, forwardRef, useContext, useEffect, useImperativeHandle, useRef, useState } from 'react';
-import { commentContext } from '../context/commentContext';
+import { useDispatch, useSelector} from 'react-redux';
+import { RootState, updateComment } from '../../store';
 import styles from './comentform.css';
 import { IconComments } from './IconComments';
 
@@ -8,8 +9,9 @@ interface IPost {
   author: string;
 }
 
-function ComentForm1(props: IPost, ref:any) {
-  const [value, setValue]  = useState(props.author)
+function ComentForms(props: IPost, ref:any) {
+  const valueInitial = useSelector<RootState, string>(state => state.commentText)
+  const dispatch = useDispatch();
   const ref1 = useRef<HTMLDivElement>(null);
 
   const inputRef = useRef<HTMLTextAreaElement>(null);
@@ -36,7 +38,7 @@ function ComentForm1(props: IPost, ref:any) {
   }, [])
 
   function handleChange(event: ChangeEvent<HTMLTextAreaElement>) {
-    setValue(event.target.value)
+    dispatch(updateComment(event.target.value))
   }
 
   function handleSubmit(event: FormEvent) {
@@ -46,7 +48,7 @@ function ComentForm1(props: IPost, ref:any) {
   return (
     <div className={styles.comentForm} ref={ref1}>
     <form className={styles.form} onSubmit={handleSubmit}>
-      <textarea className={styles.input} ref={inputRef} value={value} onChange={handleChange}></textarea>
+      <textarea className={styles.input} ref={inputRef} value={valueInitial} onChange={handleChange}></textarea>
       <div className={styles.blockIconsButton}>
         <div className={styles.componentIconComments}>
           <IconComments ></IconComments>
@@ -58,4 +60,4 @@ function ComentForm1(props: IPost, ref:any) {
   );
 }
 
-export const ComentForm = forwardRef(ComentForm1);
+export const ComentForm = forwardRef(ComentForms);

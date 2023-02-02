@@ -4,7 +4,7 @@ export function useToken(): string[] {
     
     
     const [token, setToken] = useState('');
-
+   
     useEffect(() => {
         if (window.__token__) {
             setToken(window.__token__)
