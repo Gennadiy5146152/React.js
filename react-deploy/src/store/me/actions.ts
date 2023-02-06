@@ -1,8 +1,7 @@
 import axios from "axios";
 import { Action, ActionCreator } from "redux";
-import { RootState } from "../../store";
+import { RootState, setToken } from "../../store";
 import {ThunkAction} from "redux-thunk"
-import { useSelector } from "react-redux";
 
 export const ME_REQUEST = 'ME_REQUEST';
 
@@ -45,12 +44,13 @@ export const meRequestError: ActionCreator<MeRequestErrorAction> = (error: strin
 
 export const meRequestAsync = (): ThunkAction<void, RootState, unknown, Action<string>> => (dispatch: any, getState:any) => {
     dispatch(meRequest())
-    //if (getState().token) {
+    if (!getState().token || getState().token === undefined) return;
         axios.get('https://oauth.reddit.com/api/v1/me', {
             headers: {Authorization: `bearer ${getState().token}`}
             })
             .then((resp) => {
                 const userData = resp.data;
+                console.log(userData)
                 const myUserData = {name: userData.name, iconImg: userData.icon_img.split('?')[0]}
                 //setData(myUserData);
                 dispatch(meRequestSuccess(myUserData))
@@ -59,5 +59,10 @@ export const meRequestAsync = (): ThunkAction<void, RootState, unknown, Action<s
                 console.log(error);
                 dispatch(meRequestError(String(error)));
             });
-  //  }
 }
+
+ export const saveToken = () => (dispatch: any, getState:any) => {
+    if (window.__token__) {
+        dispatch(setToken(window.__token__))
+    }
+ }
