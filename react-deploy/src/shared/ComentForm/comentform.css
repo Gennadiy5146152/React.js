@@ -6,6 +6,10 @@
     border: 1px solid black;
 }
 
+.input[aria-invalid] {
+    border-color: red;
+}
+
 .button {
     width: 45%;
     height: 50px;
@@ -26,4 +30,9 @@
 
 .comentForm {
     margin-bottom: 53px;
+}
+
+.button:disabled {
+    opacity: 0.5;
+    cursor: default;
 }
