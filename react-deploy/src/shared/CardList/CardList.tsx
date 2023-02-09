@@ -13,6 +13,7 @@ export function CardList() {
   const [errorLoading, setErrorLoading] = useState('');
   const [nextAfter, setNextAfter] = useState('');
   const [postLoading, setPostLoading] = useState(0);
+  const [seeButton, setSeeButton] = useState(false);
 
   const bottomOfList = useRef<HTMLDivElement>(null);
   async function load() {
@@ -42,7 +43,10 @@ export function CardList() {
         setPostLoading(postLoading + 1)
         console.log(postLoading)
         if (postLoading % 3 != 0 || postLoading === 0) {
+          setSeeButton(false)
           load();
+        }else {
+          setSeeButton(true)
         }
       }
     }, {
@@ -71,7 +75,10 @@ export function CardList() {
         title={post.data.title}
         />
       ))}
-      <button className={styles.button} onClick={() => load()}>Загрузить еще</button>
+      {seeButton && (
+        <button className={styles.button} onClick={() => load()}>Загрузить еще</button>
+      )}
+      
 
       <div ref={bottomOfList}>
 
