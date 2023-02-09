@@ -19,7 +19,6 @@ interface ICard {
 }
 
 export function Card({author, image, url, title, date, score, comments, id, subreddit}: ICard) {
-  console.log(subreddit)
   return (
     <li className={styles.card}>
     <div className={styles.textContent}>
