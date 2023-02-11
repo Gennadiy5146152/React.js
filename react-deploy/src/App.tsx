@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import './main.global.css'
 import { hot } from "react-hot-loader/root";
 import { Layout } from "./shared/Layout";
@@ -12,6 +12,11 @@ import { Provider } from "react-redux";
 import {composeWithDevTools} from "redux-devtools-extension";
 import { rootReducer } from "./store";
 import thunk from 'redux-thunk';
+import { BrowserRouter, Redirect, Route, Switch } from "react-router-dom";
+import { Post } from "./shared/Post";
+import { useCommentsData } from "./hooks/useCommentsData";
+import { NotFound } from "./NotFound";
+
 
 
 const store = createStore(rootReducer,composeWithDevTools(
@@ -21,28 +26,45 @@ const store = createStore(rootReducer,composeWithDevTools(
 
 function AppComponent(): JSX.Element {
     const [commentValue, setCommentValue] = useState('');
+    const [mounted, setMounted] = useState(false);
 
     const CommentProvider = commentContext.Provider
+
+    useEffect(() => {
+        setMounted(true);
+    }, [])
    
 
     return (
         <Provider store={store}>
-        <CommentProvider value={{
-            value: commentValue,
-            onChange: setCommentValue,
-        }}>
-         
-                    <PostContextProvider>
-                        <Layout>
-                            <Header/>
-                                <Content>
-                                    <CardList />
-                                    <   br/>
-                                </Content>
-                        </Layout>
-                    </PostContextProvider>
-               
-        </CommentProvider>
+            {mounted && (
+                    <CommentProvider value={{
+                        value: commentValue,
+                        onChange: setCommentValue,
+                    }}>
+                        <PostContextProvider>
+                            <Layout>
+                                <Header/>
+                                    <Content>
+                                        <BrowserRouter>
+                                            <Switch>
+                                                <Redirect exact from='/auth' to="/posts"/>
+                                                <Redirect exact from='/' to="/posts"/>
+                                                <Route exact path='/posts/:id'>
+                                                    <Post />
+                                                    <CardList />
+                                                </Route>
+                                                <Route exact path='/posts'>
+                                                    <CardList />
+                                                </Route>
+                                                <Route path="*" component={NotFound} />
+                                            </Switch>
+                                        </BrowserRouter>
+                                    </Content>
+                            </Layout>
+                        </PostContextProvider>       
+                    </CommentProvider>
+            )}
         </Provider>
     )
 }

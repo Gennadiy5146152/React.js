@@ -28,7 +28,6 @@ export function CardList() {
         }
         })
         setNextAfter(after)
-        console.log(after)
         setPosts(prevChildren => prevChildren.concat(...children));
       } catch (error) {
         setErrorLoading(String(error));
@@ -41,7 +40,6 @@ export function CardList() {
     const observer = new IntersectionObserver((entries) => {
       if (entries[0].isIntersecting) {
         setPostLoading(postLoading + 1)
-        console.log(postLoading)
         if (postLoading % 3 != 0 || postLoading === 0) {
           setSeeButton(false)
           load();
@@ -73,6 +71,8 @@ export function CardList() {
         <Card
         key={post.data.id}
         title={post.data.title}
+        id={post.data.id}
+        subreddit={post.data.subreddit}
         />
       ))}
       {seeButton && (

@@ -7,9 +7,6 @@ import {indexTemplate} from './indexTemplate'
 const app = express();
 
 app.use("/static", express.static("./dist/client"));
-app.get("/", (req, res) => {
-  res.send(indexTemplate(ReactDOM.renderToString(App())));
-});
 
 app.get('/auth', (req, res) => {
   axios.post(
@@ -25,6 +22,10 @@ app.get('/auth', (req, res) => {
       indexTemplate(ReactDOM.renderToString(App()), data['access_token']))
   })
   .catch(console.log);
+});
+
+app.get("*", (req, res) => {
+  res.send(indexTemplate(ReactDOM.renderToString(App())));
 });
 
 

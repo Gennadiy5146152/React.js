@@ -3,6 +3,7 @@ import { User } from '../User';
 import styles from './avatar.css';
 import {Post} from '../../../Post'
 import { useCommentsData } from '../../../../hooks/useCommentsData';
+import { Link, Route } from 'react-router-dom';
 
 interface IAvatar {
   url: string;
@@ -15,7 +16,7 @@ interface IAvatar {
 }
 
 export function Avatar({url, author, date, title, direction, id, subreddit}: IAvatar) {
-  const [isModalOpened, setIsModalOpened ] = useState(false);
+  //const [isModalOpened, setIsModalOpened ] = useState(false);
   const [data] = useCommentsData({id, subreddit});
   return (
 <div className={styles.textContent}>
@@ -32,13 +33,12 @@ export function Avatar({url, author, date, title, direction, id, subreddit}: IAv
       </span>
   </div>
   <h2 className={styles.title}>
-    <a href='#' className={styles.postLink} onClick={(event) => {
-      setIsModalOpened(true)}}>
+    <Link to='/posts/1' className={styles.postLink}>
       {title}
-    </a>
-    {isModalOpened && (
+    </Link>
+    {/* {isModalOpened && (
       <Post data={data} onClose={() => {setIsModalOpened(false)}}></Post>
-    )}
+    )} */}
   </h2>
 </div>
   );

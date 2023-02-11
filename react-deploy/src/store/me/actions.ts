@@ -50,7 +50,6 @@ export const meRequestAsync = (): ThunkAction<void, RootState, unknown, Action<s
             })
             .then((resp) => {
                 const userData = resp.data;
-                console.log(userData)
                 const myUserData = {name: userData.name, iconImg: userData.icon_img.split('?')[0]}
                 //setData(myUserData);
                 dispatch(meRequestSuccess(myUserData))
