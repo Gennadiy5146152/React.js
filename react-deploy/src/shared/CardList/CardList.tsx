@@ -8,7 +8,7 @@ import { RootState } from '../../store';
 
 export function CardList() {
   const token = useSelector<RootState>(state => state.token);
-  const [post, setPosts] = useState<any[]>([]);
+  const [posts, setPosts] = useState<any[]>([]);
   const [loading, setLoading] = useState(false);
   const [errorLoading, setErrorLoading] = useState('');
   const [nextAfter, setNextAfter] = useState('');
@@ -61,13 +61,14 @@ export function CardList() {
     }
   }, [bottomOfList.current, nextAfter, token])
 
-
+  console.log(posts)
   return (
     <ul className={styles.cardList}>
-      {post.length === 0 && !loading && !errorLoading && (
+      {posts.length === 0 && !loading && !errorLoading && (
         <div style={{textAlign: 'center'}}>Нет ни одного поста</div>
       )}
-      {post.map(post => (
+     
+      {posts.map(post => (
         <Card
         key={post.data.id}
         title={post.data.title}

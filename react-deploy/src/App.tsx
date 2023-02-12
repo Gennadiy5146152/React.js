@@ -12,7 +12,7 @@ import { Provider } from "react-redux";
 import {composeWithDevTools} from "redux-devtools-extension";
 import { rootReducer } from "./store";
 import thunk from 'redux-thunk';
-import { BrowserRouter, Redirect, Route, Switch } from "react-router-dom";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import { Post } from "./shared/Post";
 import { useCommentsData } from "./hooks/useCommentsData";
 import { NotFound } from "./NotFound";
@@ -42,27 +42,22 @@ function AppComponent(): JSX.Element {
                         value: commentValue,
                         onChange: setCommentValue,
                     }}>
+                         <BrowserRouter>
                         <PostContextProvider>
                             <Layout>
                                 <Header/>
                                     <Content>
-                                        <BrowserRouter>
-                                            <Switch>
-                                                <Redirect exact from='/auth' to="/posts"/>
-                                                <Redirect exact from='/' to="/posts"/>
-                                                <Route exact path='/posts/:id'>
-                                                    <Post />
-                                                    <CardList />
-                                                </Route>
-                                                <Route exact path='/posts'>
-                                                    <CardList />
-                                                </Route>
-                                                <Route path="*" component={NotFound} />
-                                            </Switch>
-                                        </BrowserRouter>
+                                       <Routes>
+                                            <Route path='/posts/:id' element={<Post />} />
+                                            <Route path='/auth' element={<Navigate replace to='/posts' />} />
+                                            <Route path='/' element={<Navigate replace to='/posts' />} />
+                                            <Route path='/posts' element={<CardList />} />
+                                            <Route path='*' element={<NotFound />} />
+                                        </Routes>
                                     </Content>
                             </Layout>
-                        </PostContextProvider>       
+                        </PostContextProvider> 
+                        </BrowserRouter>      
                     </CommentProvider>
             )}
         </Provider>
