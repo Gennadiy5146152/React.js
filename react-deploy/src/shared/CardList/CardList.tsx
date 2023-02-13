@@ -36,7 +36,6 @@ export function CardList() {
     }
 
   useEffect(() => {
-
     const observer = new IntersectionObserver((entries) => {
       if (entries[0].isIntersecting) {
         setPostLoading(postLoading + 1)
@@ -59,7 +58,7 @@ export function CardList() {
         observer.unobserve(bottomOfList.current)
       }
     }
-  }, [bottomOfList.current, nextAfter, token])
+  }, [nextAfter])
 
   console.log(posts)
   return (
