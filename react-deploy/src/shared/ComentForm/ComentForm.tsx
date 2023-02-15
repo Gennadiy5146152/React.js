@@ -4,14 +4,28 @@ import { useDispatch, useSelector} from 'react-redux';
 import { RootState, updateComment } from '../../store';
 import styles from './comentform.css';
 import { IconComments } from './IconComments';
+import {create} from 'zustand';
 
 interface IPost {
   onClose?: () => void;
   author: string;
 }
 
+interface IZustand {
+  value: string;
+  inc: (newValue: string) => void;
+}
+const useZustand = create<IZustand>(set => ({
+  value: '',
+  inc: (newValue: string) => set(({ value: newValue })),
+}))
+
 function ComentForms(props: IPost, ref:any) {
-  const valueInitial = useSelector<RootState, string>(state => state.commentText)
+  
+  const valeuZustand = useZustand(state => state.value)
+  const inc = useZustand(state => state.inc)
+
+  //const valueInitial = useSelector<RootState, string>(state => state.commentText)
   const dispatch = useDispatch();
   const ref1 = useRef<HTMLDivElement>(null);
 
@@ -37,7 +51,7 @@ function ComentForms(props: IPost, ref:any) {
       document.removeEventListener('click', handleClick)
     }
   }, [])
-  const [value1, setValue ] = useState('');
+  //const [value1, setValue ] = useState('');
   // const [touched, setToched] = useState(false);
   // const [valueError, setValueError] = useState('');
 
@@ -90,7 +104,8 @@ function ComentForms(props: IPost, ref:any) {
      },
     validate,
     onSubmit: values => {
-      setValue(values.value);
+      inc(values.value);
+      console.log(valeuZustand)
     },
   });
 
